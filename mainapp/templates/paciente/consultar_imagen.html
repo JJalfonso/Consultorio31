@@ -1,0 +1,35 @@
+{% extends 'layout/layout_master.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 centrar_div">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">                                                                
+             <h6 class="mb-4">Biometria</h6>        
+                
+                <img src="{{imagen}}" id="canvasImgsite">           
+                <a href="{% url 'verificar_imagen' %}" class="btn btn-primary">Verificar</a>
+            </div>
+            <form method="POST" action="{% url 'registro_usuario' %}" >              
+                {% csrf_token %}
+                
+                <h6 class="mb-4">Biometria</h6>
+                <video id="video" autoplay ></video>        
+                <img src="" id="canvasImgsite">
+
+            </form>
+        </div>                      
+    </div>
+<div>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script> 
+<script src="{% static 'js/script_bio.js' %}"></script>
+
+
+
+{% endblock %}
